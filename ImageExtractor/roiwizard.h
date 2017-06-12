@@ -1,29 +1,32 @@
 #ifndef ROIWIZARD_H
 #define ROIWIZARD_H
 
-#include <QAbstractItemModel>
+#include <QCheckBox>
+#include <QGroupBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QRadioButton>
+#include <QRegularExpression>
+#include <QVBoxLayout>
+#include <QWizard>
 
-class ROIWizard : public QAbstractItemModel
-{
-    Q_OBJECT
+#include <iostream>
+#include <string>
+
+class ROIWizard : public QWizard {
+  Q_OBJECT
 
 public:
-    explicit ROIWizard(QObject *parent = 0);
-
-    // Header:
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-
-    // Basic functionality:
-    QModelIndex index(int row, int column,
-                      const QModelIndex &parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex &index) const override;
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+  explicit ROIWizard(std::vector<std::pair<std::string, std::string>> *classes,
+                     QString *imagesPath, bool *resize, int *col, int *row,
+                     QWidget *parent = 0);
+  void accept() override;
 
 private:
+  bool *resize;
+  int *col, *row;
+  QString *imagesPath;
+  std::vector<std::pair<std::string, std::string>> *classes;
 };
 
 #endif // ROIWIZARD_H

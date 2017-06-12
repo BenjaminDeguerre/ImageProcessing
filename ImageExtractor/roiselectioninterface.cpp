@@ -1,6 +1,5 @@
-#include "roiselelctioninterface.h"
+#include "roiselectioninterface.h"
 
-ROISelelctionInterface::ROISelelctionInterface()
-{
+ROISelectionInterface::ROISelectionInterface(QWidget *parent): QWidget(parent) {}
 
-}
+ROISelectionInterface::~ROISelectionInterface() {}

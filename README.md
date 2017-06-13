@@ -23,9 +23,10 @@ Sor far there are two options :
 * Base path, were to send the images belonging to no classes
 * Image path, the directory were to find the images to process
 
-A module can belong to more than one class.
+A module can belong to more than one class
 
-## Extraction
+
+## Extraction
 
 * Select class
 * Draw the rectangle around the target objects (do this for each class)
